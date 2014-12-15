@@ -57,11 +57,6 @@
 <p>This page introduces you to PyGraphML. If you want to skip this step
 and directly play with API documentation, go to
 <a class="reference internal" href="reference.html#pygraphml-reference"><em>pygraphml &#8211; API documentation</em></a>.</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Documentation is still incomplete. Be patient and do not hesitate
-to report bug.</p>
-</div>
 <div class="section" id="test-if-pygraphml-is-working">
 <h2>Test if PyGraphML is working<a class="headerlink" href="#test-if-pygraphml-is-working" title="Permalink to this headline">¶</a></h2>
 <p>First, open a Python console and try import PyGraphML</p>
@@ -69,16 +64,14 @@ to report bug.</p>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
-<p>If there is not <tt class="docutils literal"><span class="pre">ImportError</span></tt> message, PyGraphML is well detected by
+<p>If there is no <tt class="docutils literal"><span class="pre">ImportError</span></tt> message, PyGraphML is well detected by
 your python installation.</p>
 </div>
 <div class="section" id="create-a-graph">
 <h2>Create a graph<a class="headerlink" href="#create-a-graph" title="Permalink to this headline">¶</a></h2>
 <p>Let&#8217;s create a simple graph with 5 nodes and some edges between this
 nodes:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c">#-*- coding: utf-8 -*-</span>
-
-<span class="kn">from</span> <span class="nn">pygraphml</span> <span class="kn">import</span> <span class="n">Graph</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">pygraphml</span> <span class="kn">import</span> <span class="n">Graph</span>
 
 <span class="c"># Create graph</span>
 
@@ -94,6 +87,19 @@ nodes:</p>
 <span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">n2</span><span class="p">,</span> <span class="n">n3</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">n3</span><span class="p">,</span> <span class="n">n4</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">n3</span><span class="p">,</span> <span class="n">n5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="graph-search">
+<h2>Graph search<a class="headerlink" href="#graph-search" title="Permalink to this headline">¶</a></h2>
+<p>You can use <a class="reference external" href="http://en.wikipedia.org/wiki/Breadth-first_search">breadth-first search</a> and <a class="reference external" href="http://en.wikipedia.org/wiki/Depth-first_search">depth-first search</a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">nodes</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">BFS</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+<span class="n">nodes</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">DFS_prefix</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -117,9 +123,7 @@ graph consistent.</p>
 <h2>Write a graph into GraphML file<a class="headerlink" href="#write-a-graph-into-graphml-file" title="Permalink to this headline">¶</a></h2>
 <p>Now you may want to write your graph into a GraphML file. This is a
 way:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c">#-*- coding: utf-8 -*-</span>
-
-<span class="kn">from</span> <span class="nn">pygraphml</span> <span class="kn">import</span> <span class="n">Graph</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">pygraphml</span> <span class="kn">import</span> <span class="n">Graph</span>
 <span class="kn">from</span> <span class="nn">pygraphml</span> <span class="kn">import</span> <span class="n">GraphMLParser</span>
 
 <span class="c"># Create graph</span>
@@ -206,6 +210,7 @@ GraphML file, attributes are available by the same way.</p>
 <li><a class="reference internal" href="#">Usage example</a><ul>
 <li><a class="reference internal" href="#test-if-pygraphml-is-working">Test if PyGraphML is working</a></li>
 <li><a class="reference internal" href="#create-a-graph">Create a graph</a></li>
+<li><a class="reference internal" href="#graph-search">Graph search</a></li>
 <li><a class="reference internal" href="#visualize-a-graph-with-networkx">Visualize a graph with NetworkX</a></li>
 <li><a class="reference internal" href="#write-a-graph-into-graphml-file">Write a graph into GraphML file</a></li>
 <li><a class="reference internal" href="#read-a-graph-from-graphml-file">Read a graph from GraphML file</a></li>
